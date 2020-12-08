@@ -1,14 +1,22 @@
 package com.robertompfm.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="contacts")
+@NamedQuery(
+	name="Contact.searchByEmail", 
+	query="SELECT c FROM Contact c WHERE c.email = :email")
 public class Contact {
 	
 	@Id
@@ -23,6 +31,9 @@ public class Contact {
 
 	@Column(name="contact_phone")
 	private String phone;
+	
+//	@OneToMany
+//	private List<Phone> phoneNumbers;
 	
 	@Column(name="contact_active")
 	private boolean active;

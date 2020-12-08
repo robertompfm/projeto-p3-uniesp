@@ -6,12 +6,17 @@ import com.robertompfm.model.Contact;
 
 public interface ContactService {
 
-	
-	public void saveContact(Contact contact);
+	public boolean saveContact(Contact contact);
 	
 	public List<Contact> contactsList();
 	
-	public void removeContact(long contactId);
+	public boolean removeContact(long contactId);
 	
 	public Contact findContactById(long contactId);
+	
+	public boolean isContactEmailValid(String email);
+
+	public boolean toggleContactStatus(long contactId);
+	
+	public boolean updateContact(Contact contact);
 }
